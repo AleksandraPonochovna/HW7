@@ -1,23 +1,19 @@
 package com.company;
 
-public class StorageApp {
+public class PairApp {
 
     public static void main(String[] args) {
-        Storage<Integer, String> storageFirst = new Storage<>();
-        Storage<Integer, String> storageTwo = new Storage<>();
-        Storage<Integer, String> storageThird = new Storage<>();
+        Pair<Integer, String> pair = Pair.of(null, "hello");
+        Integer integer = pair.getFirst();
+        System.out.println(integer); //null
+        String string = pair.getSecond();
+        System.out.println(string); //hello
 
-        storageFirst.put(1, "hello");
-        System.out.println(storageFirst);
-        System.out.println(storageFirst.get(1));
-
-        storageTwo.put(2, "world");
-        System.out.println(storageTwo);
-        System.out.println(storageTwo.get(2));
-
-        storageThird.put(3, "!!!!!!");
-        System.out.println(storageThird);
-        System.out.println(storageThird.get(4));
+        Pair<Integer, String> pair2 = Pair.of(1, "hello");
+        boolean mustBeTrue = pair.equals(pair2);
+        System.out.println(mustBeTrue); //true
+        boolean mustAlsoBeTrue = pair.hashCode() == pair2.hashCode();
+        System.out.println(mustAlsoBeTrue); //true
 
     }
 }
