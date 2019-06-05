@@ -3,9 +3,9 @@ package com.company;
 public class PairApp {
 
     public static void main(String[] args) {
-        Pair<Integer, String> pair = Pair.of(null, "hello");
+        Pair<Integer, String> pair = Pair.of(1, "hello");
         Integer integer = pair.getFirst();
-        System.out.println(integer); //null
+        System.out.println(integer); //1
         String string = pair.getSecond();
         System.out.println(string); //hello
 
