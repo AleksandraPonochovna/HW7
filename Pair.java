@@ -1,7 +1,5 @@
 package com.company;
 
-import java.util.Objects;
-
 public class Pair<T, V> {
 
     private T first;
@@ -25,12 +23,15 @@ public class Pair<T, V> {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Pair<?, ?> pair = (Pair<?, ?>) o;
-        return Objects.equals(first, pair.first) &&
-                Objects.equals(second, pair.second);
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj instanceof Pair) {
+            Pair<T, V> pair = (Pair<T, V>) obj;
+            return (getFirst() == pair.first && getSecond() == pair.second);
+        }
+        return false;
     }
 
     @Override
