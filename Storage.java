@@ -1,18 +1,25 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class Storage<T, V> {
 
-    private T key;
-    private V value;
+    private ArrayList<T> keys = new ArrayList<>();
+    private ArrayList<V> values = new ArrayList<>();
 
     public void put(T key, V value) {
-        this.key = key;
-        this.value = value;
+        if (!keys.contains(null) && !values.contains(null)) {
+            keys.add(key);
+            values.add(value);
+        }
     }
 
     public V get(T key) {
-        if (this.key == key){
-            return value;
+        for (T someKey : keys) {
+            if (someKey == key) {
+                int index = keys.indexOf(someKey);
+                return values.get(index);
+            }
         }
         return null;
     }
@@ -20,7 +27,7 @@ public class Storage<T, V> {
     @Override
     public String toString() {
         return "Storage: " +
-                "key = " + key +
-                ", value = " + value;
+                "keys = " + keys +
+                ", values = " + values;
     }
 }
