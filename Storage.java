@@ -8,10 +8,8 @@ public class Storage<T, V> {
     private ArrayList<V> values = new ArrayList<>();
 
     public void put(T key, V value) {
-        if (!keys.contains(null) && !values.contains(null)) {
-            keys.add(key);
-            values.add(value);
-        }
+        keys.add(key);
+        values.add(value);
     }
 
     public V get(T key) {
